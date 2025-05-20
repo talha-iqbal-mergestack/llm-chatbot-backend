@@ -5,7 +5,7 @@ from ..config import settings
 
 class OpenAIProvider(LLMProvider):
     def __init__(self):
-        self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY, base_url="https://openrouter.ai/api/v1")
+        self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY, base_url=settings.OPENAI_API_BASE)
 
     async def chat_completion(
         self,
