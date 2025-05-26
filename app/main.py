@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .core.config import settings
-from .api.v1 import chat
+from .api.v1 import chat, document
 
 def create_application() -> FastAPI:
     application = FastAPI(
@@ -24,6 +24,12 @@ def create_application() -> FastAPI:
         chat.router,
         prefix=settings.API_V1_STR,
         tags=["chat"]
+    )
+
+    application.include_router(
+        document.router,
+        prefix=settings.API_V1_STR,
+        tags=["document"]
     )
 
     return application
