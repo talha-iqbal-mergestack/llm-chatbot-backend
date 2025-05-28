@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     OPENAI_API_BASE: Optional[str] = None
     PINECONE_API_KEY: Optional[str] = None
     PINECONE_ENVIRONMENT: Optional[str] = None
-    OPENAI_API_EMBEDDINGS_KEY: Optional[str] = None
+    OPENAI_EMBEDDINGS_KEY: Optional[str] = None
 
     class Config:
         env_file = ".env"

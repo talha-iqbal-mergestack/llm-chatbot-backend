@@ -1,11 +1,15 @@
 from fastapi import APIRouter, Depends, UploadFile, File
 from ...services.rag_service import RAGService
 from typing import Optional
+from pydantic import BaseModel
 import shutil
 import os
 from pathlib import Path
 
 router = APIRouter()
+
+class QueryRequest(BaseModel):
+    query: str
 
 def get_rag_service():
     return RAGService()
@@ -41,8 +45,8 @@ async def upload_document(
 
 @router.post("/documents/query")
 async def query_document(
-    query: str,
+    request: QueryRequest,
     rag_service: RAGService = Depends(get_rag_service)
 ):
     """Query the processed documents."""
-    return await rag_service.query_document(query)
+    return await rag_service.query_document(request.query)

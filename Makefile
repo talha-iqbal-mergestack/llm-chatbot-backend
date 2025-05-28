@@ -1,2 +1,2 @@
 dev:
-	uvicorn app.main:app --reload
+	uvicorn app.main:app --reload --port 5000
