@@ -88,7 +88,8 @@ orjson==3.10.18
 packaging==24.2
 pandas==2.2.3
 pdf2image==1.17.0
-pdfminer.six==20250506
+pdfminer.six==20250327
+pdfplumber==0.11.6
 pi_heif==0.22.0
 pikepdf==9.7.0
 pillow==11.2.1
@@ -108,6 +109,7 @@ pydantic==2.11.4
 pydantic-settings==2.9.1
 pydantic_core==2.33.2
 Pygments==2.19.1
+PyMuPDF==1.26.0
 pyparsing==3.2.3
 pypdf==5.5.0
 pypdfium2==4.30.1
@@ -158,6 +160,7 @@ unstructured-client==0.35.0
 unstructured-inference==1.0.2
 unstructured.pytesseract==0.3.15
 urllib3==2.4.0
+uuid==1.30
 uvicorn==0.34.2
 uvloop==0.21.0
 watchfiles==1.0.5
