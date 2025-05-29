@@ -16,7 +16,7 @@ from ..core.config import settings
 
 class RAGService:
     def __init__(self):
-        self.embeddings = OpenAIEmbeddings( # Replace with OpenAI SDK
+        self.embeddings = OpenAIEmbeddings(
             api_key=settings.OPENAI_EMBEDDINGS_KEY,
             base_url="https://api.openai.com/v1",
         )
@@ -286,16 +286,10 @@ class RAGService:
                 # Extract tables if any exist
                 tables = page.extract_tables()
                 if tables:
-                    # Convert tables to markdown format
-                    table_text = "\n\nTables:\n"
+                    text += "\n\nTables:\n"
                     for table in tables:
-                        # Create markdown table header
-                        table_text += "| " + " | ".join(str(cell) for cell in table[0]) + " |\n"
-                        table_text += "| " + " | ".join(["-" * len(str(cell)) for cell in table[0]]) + " |\n"
-                        # Add table rows
-                        for row in table[1:]:
-                            table_text += "| " + " | ".join(str(cell) if cell else " " for cell in row) + " |\n"
-                    text += table_text
+                        for row in table:
+                            text += " ".join(str(cell) if cell else "" for cell in row) + "\n"
                 
                 # Create a Document object with page metadata
                 documents.append(Document(
