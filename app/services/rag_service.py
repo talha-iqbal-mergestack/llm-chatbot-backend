@@ -319,7 +319,7 @@ class RAGService:
         )
         return splitter.split_documents(documents)
 
-    async def process_document(self, file_path: str, mode: str = "single") -> dict:
+    async def process_document(self, file_path: str, mode: str = "pdfplumber") -> dict:
         """Process a document using the specified mode.
         
         Args:
@@ -387,7 +387,7 @@ class RAGService:
             index=index,
             embedding=self.embeddings,
             text_key="text",  # Default document text field
-            namespace="single"
+            namespace="pdfplumber"
         )
         retriever = vectorstore.as_retriever()
         
